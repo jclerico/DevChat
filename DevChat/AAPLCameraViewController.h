@@ -7,7 +7,9 @@ View controller for camera interface.
 */
 
 @import UIKit;
+@class AAPLPreviewView;
 
 @interface AAPLCameraViewController : UIViewController
+@property (nonatomic, weak)  AAPLPreviewView *_previewView;
 
 @end

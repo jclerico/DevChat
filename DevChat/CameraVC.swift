@@ -10,16 +10,15 @@ import UIKit
 
 class CameraVC: AAPLCameraViewController {
 
+    @IBOutlet weak var previewView: AAPLPreviewView!
+    
     override func viewDidLoad() {
+        //We replaced Apple's previewView in AAPLCameraViewController.swift to _previewView and moved it to AAPLCameraViewController.h to make it a global property. We then set the value of Apples previewView to our new one.
+        self._previewView = previewView
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    
+    
 }
 

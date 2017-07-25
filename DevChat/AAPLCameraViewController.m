@@ -24,7 +24,6 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 @interface AAPLCameraViewController () <AVCaptureFileOutputRecordingDelegate>
 
 // For use in the storyboards.
-@property (nonatomic, weak) IBOutlet AAPLPreviewView *previewView;
 @property (nonatomic, weak) IBOutlet UILabel *cameraUnavailableLabel;
 @property (nonatomic, weak) IBOutlet UIButton *resumeButton;
 @property (nonatomic, weak) IBOutlet UIButton *recordButton;
@@ -60,7 +59,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 	self.session = [[AVCaptureSession alloc] init];
 
 	// Setup the preview view.
-	self.previewView.session = self.session;
+	self._previewView.session = self.session;
 
 	// Communicate with the session and other session objects on this queue.
 	self.sessionQueue = dispatch_queue_create( "session queue", DISPATCH_QUEUE_SERIAL );
@@ -140,7 +139,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 					initialVideoOrientation = (AVCaptureVideoOrientation)statusBarOrientation;
 				}
 
-				AVCaptureVideoPreviewLayer *previewLayer = (AVCaptureVideoPreviewLayer *)self.previewView.layer;
+				AVCaptureVideoPreviewLayer *previewLayer = (AVCaptureVideoPreviewLayer *)self._previewView.layer;
 				previewLayer.connection.videoOrientation = initialVideoOrientation;
 			} );
 		}
@@ -270,7 +269,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 	// Note that the app delegate controls the device orientation notifications required to use the device orientation.
 	UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
 	if ( UIDeviceOrientationIsPortrait( deviceOrientation ) || UIDeviceOrientationIsLandscape( deviceOrientation ) ) {
-		AVCaptureVideoPreviewLayer *previewLayer = (AVCaptureVideoPreviewLayer *)self.previewView.layer;
+		AVCaptureVideoPreviewLayer *previewLayer = (AVCaptureVideoPreviewLayer *)self._previewView.layer;
 		previewLayer.connection.videoOrientation = (AVCaptureVideoOrientation)deviceOrientation;
 	}
 }
@@ -307,9 +306,9 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 
 		if ( isCapturingStillImage ) {
 			dispatch_async( dispatch_get_main_queue(), ^{
-				self.previewView.layer.opacity = 0.0;
+				self._previewView.layer.opacity = 0.0;
 				[UIView animateWithDuration:0.25 animations:^{
-					self.previewView.layer.opacity = 1.0;
+					self._previewView.layer.opacity = 1.0;
 				}];
 			} );
 		}
@@ -470,7 +469,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 
 			// Update the orientation on the movie file output video connection before starting recording.
 			AVCaptureConnection *connection = [self.movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
-			AVCaptureVideoPreviewLayer *previewLayer = (AVCaptureVideoPreviewLayer *)self.previewView.layer;
+			AVCaptureVideoPreviewLayer *previewLayer = (AVCaptureVideoPreviewLayer *)self._previewView.layer;
 			connection.videoOrientation = previewLayer.connection.videoOrientation;
 
 			// Turn OFF flash for video recording.
@@ -549,7 +548,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 {
 	dispatch_async( self.sessionQueue, ^{
 		AVCaptureConnection *connection = [self.stillImageOutput connectionWithMediaType:AVMediaTypeVideo];
-		AVCaptureVideoPreviewLayer *previewLayer = (AVCaptureVideoPreviewLayer *)self.previewView.layer;
+		AVCaptureVideoPreviewLayer *previewLayer = (AVCaptureVideoPreviewLayer *)self._previewView.layer;
 
 		// Update the orientation on the still image output video connection before capturing.
 		connection.videoOrientation = previewLayer.connection.videoOrientation;
@@ -612,7 +611,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer *)gestureRecognizer
 {
-	CGPoint devicePoint = [(AVCaptureVideoPreviewLayer *)self.previewView.layer captureDevicePointOfInterestForPoint:[gestureRecognizer locationInView:gestureRecognizer.view]];
+	CGPoint devicePoint = [(AVCaptureVideoPreviewLayer *)self._previewView.layer captureDevicePointOfInterestForPoint:[gestureRecognizer locationInView:gestureRecognizer.view]];
 	[self focusWithMode:AVCaptureFocusModeAutoFocus exposeWithMode:AVCaptureExposureModeAutoExpose atDevicePoint:devicePoint monitorSubjectAreaChange:YES];
 }
 
