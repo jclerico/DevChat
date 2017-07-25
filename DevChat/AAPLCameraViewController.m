@@ -449,7 +449,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 	} );
 }
 
-- (IBAction)toggleMovieRecording:(id)sender
+- (void)toggleMovieRecording
 {
 	// Disable the Camera button until recording finishes, and disable the Record button until recording starts or finishes. See the
 	// AVCaptureFileOutputRecordingDelegate methods.
@@ -486,7 +486,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 	} );
 }
 
-- (IBAction)changeCamera:(id)sender
+- (void)changeCamera
 {
 	self.cameraButton.enabled = NO;
 	self.recordButton.enabled = NO;

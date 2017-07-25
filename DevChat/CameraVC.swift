@@ -14,10 +14,26 @@ class CameraVC: AAPLCameraViewController {
     
     override func viewDidLoad() {
         //We replaced Apple's previewView in AAPLCameraViewController.swift to _previewView and moved it to AAPLCameraViewController.h to make it a global property. We then set the value of Apples previewView to our new one.
-        self._previewView = previewView
+        _previewView = previewView
         
         super.viewDidLoad()
     }
+    
+    @IBAction func recordBtnPressed(_ sender: Any) {
+        //Call Parent Class implementation of code
+        toggleMovieRecording()
+    }
+    
+    @IBAction func changeCameraBtnPressed(_ sender: Any) {
+        //Call Parent Class implementation of code
+        changeCamera()
+    }
+    
+    
+    
+    
+    
+    
     
     
 }

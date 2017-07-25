@@ -32,6 +32,9 @@
                                     <constraint firstAttribute="width" constant="63" id="HcO-4O-127"/>
                                 </constraints>
                                 <state key="normal" image="createsnap_btn"/>
+                                <connections>
+                                    <action selector="recordBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1ht-z6-TBp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bb2-Gw-IbD">
                                 <rect key="frame" x="298" y="28" width="69" height="48"/>
@@ -40,6 +43,9 @@
                                     <constraint firstAttribute="width" constant="69" id="lmq-5K-G5F"/>
                                 </constraints>
                                 <state key="normal" image="camera_icon_snap"/>
+                                <connections>
+                                    <action selector="changeCameraBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DYZ-tx-LNz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
