@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CameraVC: AAPLCameraViewController, AAPLCameraVCDelegate {
 
@@ -25,6 +26,15 @@ class CameraVC: AAPLCameraViewController, AAPLCameraVCDelegate {
         _previewView = previewView
         
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //Call firbase Auth and grab current user. If there is already a current user, dont run the code.. if there isnt a current user, run the code and show the login screen.
+        guard Auth.auth().currentUser != nil else {
+            //Load Login VC as there is no existing user
+            performSegue(withIdentifier: "LoginVC", sender: nil)
+            return
+        }
     }
     
     @IBAction func recordBtnPressed(_ sender: Any) {
