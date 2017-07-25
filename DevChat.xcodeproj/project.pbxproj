@@ -8,20 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		00DD468C1F2763B500564B91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD468B1F2763B500564B91 /* AppDelegate.swift */; };
-		00DD468E1F2763B500564B91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD468D1F2763B500564B91 /* ViewController.swift */; };
+		00DD468E1F2763B500564B91 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD468D1F2763B500564B91 /* CameraVC.swift */; };
 		00DD46911F2763B500564B91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00DD468F1F2763B500564B91 /* Main.storyboard */; };
 		00DD46931F2763B500564B91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00DD46921F2763B500564B91 /* Assets.xcassets */; };
 		00DD46961F2763B500564B91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00DD46941F2763B500564B91 /* LaunchScreen.storyboard */; };
+		00DD46A41F2763EE00564B91 /* AAPLPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DD46A11F2763EE00564B91 /* AAPLPreviewView.m */; };
+		00DD46A51F2763EE00564B91 /* AAPLCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DD46A31F2763EE00564B91 /* AAPLCameraViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00DD46881F2763B500564B91 /* DevChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00DD468B1F2763B500564B91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		00DD468D1F2763B500564B91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		00DD468D1F2763B500564B91 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		00DD46901F2763B500564B91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00DD46921F2763B500564B91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00DD46951F2763B500564B91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00DD46971F2763B500564B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00DD469F1F2763EE00564B91 /* DevChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DevChat-Bridging-Header.h"; sourceTree = "<group>"; };
+		00DD46A01F2763EE00564B91 /* AAPLPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLPreviewView.h; sourceTree = "<group>"; };
+		00DD46A11F2763EE00564B91 /* AAPLPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLPreviewView.m; sourceTree = "<group>"; };
+		00DD46A21F2763EE00564B91 /* AAPLCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCameraViewController.h; sourceTree = "<group>"; };
+		00DD46A31F2763EE00564B91 /* AAPLCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLCameraViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +61,35 @@
 		00DD468A1F2763B500564B91 /* DevChat */ = {
 			isa = PBXGroup;
 			children = (
+				00DD469E1F2763D500564B91 /* Controller */,
+				00DD469D1F2763D200564B91 /* View */,
 				00DD468B1F2763B500564B91 /* AppDelegate.swift */,
-				00DD468D1F2763B500564B91 /* ViewController.swift */,
 				00DD468F1F2763B500564B91 /* Main.storyboard */,
 				00DD46921F2763B500564B91 /* Assets.xcassets */,
 				00DD46941F2763B500564B91 /* LaunchScreen.storyboard */,
 				00DD46971F2763B500564B91 /* Info.plist */,
+				00DD469F1F2763EE00564B91 /* DevChat-Bridging-Header.h */,
 			);
 			path = DevChat;
+			sourceTree = "<group>";
+		};
+		00DD469D1F2763D200564B91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				00DD46A01F2763EE00564B91 /* AAPLPreviewView.h */,
+				00DD46A11F2763EE00564B91 /* AAPLPreviewView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		00DD469E1F2763D500564B91 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				00DD46A21F2763EE00564B91 /* AAPLCameraViewController.h */,
+				00DD46A31F2763EE00564B91 /* AAPLCameraViewController.m */,
+				00DD468D1F2763B500564B91 /* CameraVC.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +125,7 @@
 					00DD46871F2763B500564B91 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = VUPUN7YH6F;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -137,8 +166,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00DD468E1F2763B500564B91 /* ViewController.swift in Sources */,
+				00DD468E1F2763B500564B91 /* CameraVC.swift in Sources */,
 				00DD468C1F2763B500564B91 /* AppDelegate.swift in Sources */,
+				00DD46A41F2763EE00564B91 /* AAPLPreviewView.m in Sources */,
+				00DD46A51F2763EE00564B91 /* AAPLCameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,11 +294,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = VUPUN7YH6F;
 				INFOPLIST_FILE = DevChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JClerico.DevChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DevChat/DevChat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -276,11 +310,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = VUPUN7YH6F;
 				INFOPLIST_FILE = DevChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JClerico.DevChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DevChat/DevChat-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
