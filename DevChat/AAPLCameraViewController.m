@@ -11,6 +11,7 @@ View controller for camera interface.
 
 #import "AAPLCameraViewController.h"
 #import "AAPLPreviewView.h"
+#import "AAPLCameraVCDelegate.h"
 
 static void * CapturingStillImageContext = &CapturingStillImageContext;
 static void * SessionRunningContext = &SessionRunningContext;
@@ -51,8 +52,9 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 	[super viewDidLoad];
 
 	// Disable UI. The UI is enabled if and only if the session starts running.
-	self.cameraButton.enabled = NO;
-	self.recordButton.enabled = NO;
+    [self.delegate shouldEnableCameraUI:NO];
+    [self.delegate shouldEnableRecordUI:NO];
+    
 	self.stillButton.enabled = NO;
 
 	// Create the AVCaptureSession.
@@ -318,8 +320,10 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 
 		dispatch_async( dispatch_get_main_queue(), ^{
 			// Only enable the ability to change camera if the device has more than one camera.
-			self.cameraButton.enabled = isSessionRunning && ( [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo].count > 1 );
-			self.recordButton.enabled = isSessionRunning;
+            
+            [self.delegate shouldEnableCameraUI:isSessionRunning && ( [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo].count > 1 )];
+            
+            [self.delegate shouldEnableRecordUI:isSessionRunning];
 			self.stillButton.enabled = isSessionRunning;
 		} );
 	}
@@ -453,8 +457,8 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 {
 	// Disable the Camera button until recording finishes, and disable the Record button until recording starts or finishes. See the
 	// AVCaptureFileOutputRecordingDelegate methods.
-	self.cameraButton.enabled = NO;
-	self.recordButton.enabled = NO;
+    [self.delegate shouldEnableRecordUI:NO];
+    [self.delegate shouldEnableCameraUI:NO];
 
 	dispatch_async( self.sessionQueue, ^{
 		if ( ! self.movieFileOutput.isRecording ) {
@@ -488,8 +492,8 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 
 - (void)changeCamera
 {
-	self.cameraButton.enabled = NO;
-	self.recordButton.enabled = NO;
+    [self.delegate shouldEnableRecordUI:NO];
+    [self.delegate shouldEnableCameraUI:NO];
 	self.stillButton.enabled = NO;
 
 	dispatch_async( self.sessionQueue, ^{
@@ -537,8 +541,8 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 		[self.session commitConfiguration];
 
 		dispatch_async( dispatch_get_main_queue(), ^{
-			self.cameraButton.enabled = YES;
-			self.recordButton.enabled = YES;
+            [self.delegate shouldEnableRecordUI:YES];
+            [self.delegate shouldEnableCameraUI:YES];
 			self.stillButton.enabled = YES;
 		} );
 	} );
@@ -621,8 +625,9 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 {
 	// Enable the Record button to let the user stop the recording.
 	dispatch_async( dispatch_get_main_queue(), ^{
-		self.recordButton.enabled = YES;
-		[self.recordButton setTitle:NSLocalizedString( @"Stop", @"Recording button stop title") forState:UIControlStateNormal];
+        [self.delegate shouldEnableRecordUI:YES];
+        [self.delegate recordingHasStarted];
+        
 	});
 }
 
@@ -684,9 +689,10 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 	// Enable the Camera and Record buttons to let the user switch camera and start another recording.
 	dispatch_async( dispatch_get_main_queue(), ^{
 		// Only enable the ability to change camera if the device has more than one camera.
-		self.cameraButton.enabled = ( [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo].count > 1 );
-		self.recordButton.enabled = YES;
-		[self.recordButton setTitle:NSLocalizedString( @"Record", @"Recording button record title" ) forState:UIControlStateNormal];
+        [self.delegate shouldEnableCameraUI:[AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo].count > 1 ];
+        
+        [self.delegate shouldEnableRecordUI:YES];
+        [self.delegate canStartRecording];
 	});
 }
 

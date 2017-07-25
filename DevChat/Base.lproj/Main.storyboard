@@ -61,7 +61,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cameraBtn" destination="bb2-Gw-IbD" id="zGL-fc-N3H"/>
                         <outlet property="previewView" destination="TXR-Rp-EEU" id="bdl-07-Nof"/>
+                        <outlet property="recordBtn" destination="h2M-pc-mog" id="jJR-Bm-Rxn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
