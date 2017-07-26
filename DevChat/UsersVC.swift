@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 class UsersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -124,12 +125,13 @@ class UsersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 } else {
                     //Once successfully uploaded a video to Firebase, when its done, its going to send back a download URL. This is the URL we give to the other users - They will be able to watch and see straight from Firebase.
                     let downloadURL = meta!.downloadURL()
+                    DataService.instance.sendMediaPullRequest(senderUID: Auth.auth().currentUser!.uid, sendingTo: self.selectedUsers, mediaURL: downloadURL!, textSnippit: "Coding today was great")
                     print("Download URL: \(downloadURL)")
-                    //Save this somewhere
                     
-                    self.dismiss(animated: true, completion: nil)
+                    //Save this somewhere - Where to save video?
                 }
             })
+            self.dismiss(animated: true, completion: nil)
         } else if let snap = _snapData {
             //Handle case of image
             let ref = DataService.instance.imagesStorageRef.child("\(NSUUID().uuidString).jpg")
@@ -143,6 +145,7 @@ class UsersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     self.dismiss(animated: true, completion: nil)
                 }
             })
+            self.dismiss(animated: true, completion: nil)
         }
         
         
