@@ -47,6 +47,7 @@ class CameraVC: AAPLCameraViewController, AAPLCameraVCDelegate {
         changeCamera()
     }
     
+    
     func shouldEnableCameraUI(_ enable: Bool) {
         cameraBtn.isEnabled = enable
         print("Should Enable Camera UI: \(enable)")
@@ -64,6 +65,39 @@ class CameraVC: AAPLCameraViewController, AAPLCameraVCDelegate {
     func canStartRecording() {
         print("Can Start Recording")
     }
+    
+    func videoRecordingFailed() {
+        
+    }
+    
+    func videoRecordingComplete(_ videoURL: URL!) {
+        performSegue(withIdentifier: "UsersVC", sender: ["videoURL":videoURL])
+    }
+    
+    func snapshotFailed() {
+        
+    }
+    func snapshotTaken(_ snapshotData: Data!) {
+        performSegue(withIdentifier: "UsersVC", sender: ["snapshotData":snapshotData])
+    }
+    
+    //We call perform segue (above videoRecordingComplete and snapshotTaken) and either going to do it with a video or image. Then set that stuff over in usersVC in the prepare for segue function
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let usersVC = segue.destination as? UsersVC {
+            if let videoDict = sender as? Dictionary<String, URL> {
+                let url = videoDict["videoURL"]
+                usersVC.videoURL = url
+            } else if let snapDict = sender as? Dictionary<String, Data> {
+                let snapData = snapDict["snapshotData"]
+                usersVC.snapData = snapData
+            }
+        }
+    }
+    
+    
+    
+    
+    
     
     
     
