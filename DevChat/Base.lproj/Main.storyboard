@@ -181,6 +181,9 @@
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginPressed:" destination="U22-J4-HxA" eventType="touchUpInside" id="SUE-0o-iqd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -203,6 +206,10 @@
                             <constraint firstItem="hiO-c0-qUG" firstAttribute="top" secondItem="63d-Ot-Ftv" secondAttribute="bottom" constant="20" id="uvc-9p-ntA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="AMn-LS-nPU" id="9fQ-Nf-wCb"/>
+                        <outlet property="passwordField" destination="63d-Ot-Ftv" id="jbO-gw-Jlb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrV-SD-h6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,16 +10,34 @@ import UIKit
 
 class LoginVC: UIViewController {
 
+    @IBOutlet weak var emailField: RoundTextField!
+    @IBOutlet weak var passwordField: RoundTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func loginPressed(_ sender: Any) {
+        //Handle Validation to make sure that each field is not nil. Text fields will be considered valid if it contains an empty string, and so we check the characters are > 0 to stop this.
+        if let email = emailField.text, let pass = passwordField.text , (email.characters.count > 0 && pass.characters.count > 0) {
+            
+            //Call Login Service
+            AuthService.instance.login(email: email, password: pass)
+            
+        } else {
+            //Else if email and/or password field is nil create an alert.
+            let alert = UIAlertController(title: "Username and Password Required", message: "You must enter both a username and a password", preferredStyle: .alert)
+            
+            //Action for the alert so user is able to close the alert.
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            
+            //Present the alert to the user.
+            present(alert, animated: true, completion: nil)
+        }
     }
+    
     
     
     
