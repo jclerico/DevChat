@@ -34,7 +34,7 @@ class CameraVC: AAPLCameraViewController, AAPLCameraVCDelegate {
             //Load Login VC as there is no existing user
             performSegue(withIdentifier: "LoginVC", sender: nil)
             return
-        }
+        } 
     }
     
     @IBAction func recordBtnPressed(_ sender: Any) {

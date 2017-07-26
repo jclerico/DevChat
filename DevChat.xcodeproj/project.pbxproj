@@ -19,6 +19,7 @@
 		00DD46AF1F27D1F100564B91 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD46AE1F27D1F100564B91 /* RoundedButton.swift */; };
 		00DD46B11F27D78000564B91 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD46B01F27D78000564B91 /* LoginVC.swift */; };
 		00DD46B41F28978500564B91 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD46B31F28978500564B91 /* AuthService.swift */; };
+		00DD46B61F28B84400564B91 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD46B51F28B84400564B91 /* DataService.swift */; };
 		6A0E836A45588D33C683C496 /* Pods_DevChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB2C20845D1704F693B5556 /* Pods_DevChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		00DD46AE1F27D1F100564B91 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		00DD46B01F27D78000564B91 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		00DD46B31F28978500564B91 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		00DD46B51F28B84400564B91 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		272F4A3C60AB4A5FE151ECCA /* Pods-DevChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DevChat/Pods-DevChat.debug.xcconfig"; sourceTree = "<group>"; };
 		5F662CF61ADEDA2CB2853AFB /* Pods-DevChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-DevChat/Pods-DevChat.release.xcconfig"; sourceTree = "<group>"; };
 		FCB2C20845D1704F693B5556 /* Pods_DevChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				00DD46B31F28978500564B91 /* AuthService.swift */,
+				00DD46B51F28B84400564B91 /* DataService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00DD46B61F28B84400564B91 /* DataService.swift in Sources */,
 				00DD468E1F2763B500564B91 /* CameraVC.swift in Sources */,
 				00DD46AF1F27D1F100564B91 /* RoundedButton.swift in Sources */,
 				00DD46B11F27D78000564B91 /* LoginVC.swift in Sources */,

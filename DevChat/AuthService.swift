@@ -40,6 +40,8 @@ class AuthService {
                             } else {
                                 //Else user ID does exist and proceed to signin in.
                                 if user?.uid != nil {
+                                    //When creating account, save data to database. NEED this at account creation!!
+                                    DataService.instance.saveUser(uid: user!.uid)
                                     //Sign in
                                     Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                                         if error != nil {
