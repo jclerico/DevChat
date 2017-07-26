@@ -20,6 +20,9 @@
 		00DD46B11F27D78000564B91 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD46B01F27D78000564B91 /* LoginVC.swift */; };
 		00DD46B41F28978500564B91 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD46B31F28978500564B91 /* AuthService.swift */; };
 		00DD46B61F28B84400564B91 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD46B51F28B84400564B91 /* DataService.swift */; };
+		00DD46B81F28D32500564B91 /* UsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD46B71F28D32500564B91 /* UsersVC.swift */; };
+		00DD46BA1F28D40A00564B91 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD46B91F28D40A00564B91 /* UserCell.swift */; };
+		00DD46BC1F28E08F00564B91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD46BB1F28E08F00564B91 /* User.swift */; };
 		6A0E836A45588D33C683C496 /* Pods_DevChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB2C20845D1704F693B5556 /* Pods_DevChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,9 @@
 		00DD46B01F27D78000564B91 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		00DD46B31F28978500564B91 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		00DD46B51F28B84400564B91 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		00DD46B71F28D32500564B91 /* UsersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersVC.swift; sourceTree = "<group>"; };
+		00DD46B91F28D40A00564B91 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		00DD46BB1F28E08F00564B91 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		272F4A3C60AB4A5FE151ECCA /* Pods-DevChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DevChat/Pods-DevChat.debug.xcconfig"; sourceTree = "<group>"; };
 		5F662CF61ADEDA2CB2853AFB /* Pods-DevChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-DevChat/Pods-DevChat.release.xcconfig"; sourceTree = "<group>"; };
 		FCB2C20845D1704F693B5556 /* Pods_DevChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +98,7 @@
 				00DD46971F2763B500564B91 /* Info.plist */,
 				00DD469F1F2763EE00564B91 /* DevChat-Bridging-Header.h */,
 				00DD46AA1F27984100564B91 /* GoogleService-Info.plist */,
+				00DD46BB1F28E08F00564B91 /* User.swift */,
 			);
 			path = DevChat;
 			sourceTree = "<group>";
@@ -103,6 +110,7 @@
 				00DD46A11F2763EE00564B91 /* AAPLPreviewView.m */,
 				00DD46AC1F27C9D500564B91 /* RoundTextField.swift */,
 				00DD46AE1F27D1F100564B91 /* RoundedButton.swift */,
+				00DD46B91F28D40A00564B91 /* UserCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -114,6 +122,7 @@
 				00DD46A31F2763EE00564B91 /* AAPLCameraViewController.m */,
 				00DD468D1F2763B500564B91 /* CameraVC.swift */,
 				00DD46B01F27D78000564B91 /* LoginVC.swift */,
+				00DD46B71F28D32500564B91 /* UsersVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -283,9 +292,12 @@
 				00DD46AF1F27D1F100564B91 /* RoundedButton.swift in Sources */,
 				00DD46B11F27D78000564B91 /* LoginVC.swift in Sources */,
 				00DD468C1F2763B500564B91 /* AppDelegate.swift in Sources */,
+				00DD46B81F28D32500564B91 /* UsersVC.swift in Sources */,
 				00DD46AD1F27C9D500564B91 /* RoundTextField.swift in Sources */,
 				00DD46A41F2763EE00564B91 /* AAPLPreviewView.m in Sources */,
+				00DD46BC1F28E08F00564B91 /* User.swift in Sources */,
 				00DD46A51F2763EE00564B91 /* AAPLCameraViewController.m in Sources */,
+				00DD46BA1F28D40A00564B91 /* UserCell.swift in Sources */,
 				00DD46B41F28978500564B91 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

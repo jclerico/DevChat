@@ -82,6 +82,8 @@ class AuthService {
             case .emailAlreadyInUse, .accountExistsWithDifferentCredential:
                 onComplete?("Could not create account. Email already in use", nil)
                 break
+            case .weakPassword:
+                onComplete?("Password too weak. Must be 6 or more characters", nil)
             default:
                 onComplete?("there was a problem authenticating. Try again.", nil)
             }
