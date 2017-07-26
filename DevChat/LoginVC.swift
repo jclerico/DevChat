@@ -24,7 +24,18 @@ class LoginVC: UIViewController {
         if let email = emailField.text, let pass = passwordField.text , (email.characters.count > 0 && pass.characters.count > 0) {
             
             //Call Login Service
-            AuthService.instance.login(email: email, password: pass)
+            AuthService.instance.login(email: email, password: pass, onComplete: { (errMsg, data) in
+                
+                //Dismiss LoginVC if successfully logged in. (Guard means if errMsg == nil passes, dont run the code. if it fails, run it)
+                guard errMsg == nil else {
+                    let alert = UIAlertController(title: "Error Authenticating", message: errMsg, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
+                //If successful login execute this code
+                self.dismiss(animated: true, completion: nil)
+            })
             
         } else {
             //Else if email and/or password field is nil create an alert.
